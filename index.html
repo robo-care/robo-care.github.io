@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="OpenRoboCare: A Multi-Modal Multi-Task Expert Demonstration Dataset for Robot Caregiving.">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenRoboCare</title>
+
+  <script>
+    function updateTaskVideo() {
+      var task = document.getElementById("task-selection").value;
+
+      console.log("Task", task)
+
+      var video = document.getElementById("task-video");
+      video.src = "media/videos/" + 
+                  task + 
+                  ".MP4";
+      video.playbackRate = 2.0;
+      video.play();
+    }
+
+    function updateOTVideo() {
+      var ot = document.getElementById("ot-selection").value;
+
+      console.log("OT", ot)
+
+      var video = document.getElementById("ot-video");
+      video.src = "media/videos/" + 
+                  ot +
+                  ".MP4";
+      video.playbackRate = 2.0;
+      video.play();
+    }
+
+  </script>
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center; align-items: center;">
+      <a class="navbar-item" target="_blank" href="https://emprise.cs.cornell.edu/" style="display: flex; align-items: center;">
+        <img src="media/images/emprise-logo.png" alt="EmPRISE logo" style="height: 3em; width: auto;"> 
+        <p style="margin-left: 0.5em; font-size: 1.0em; font-weight: 600;">EmPRISE Lab</p>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span>OpenRoboCare: A Multi-Modal Multi-Task Expert Demonstration Dataset</span><br>
+            <span>for Robot Caregiving</span>
+          </h1>
+          <h3 class="title is-4 conference-authors"><a target="_blank" href="">In Submission</a></h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <sup>1</sup><a target="_blank" href="">Xiaoyu Liang</a>,</span>
+            <span class="author-block">
+              <sup>1</sup><a target="_blank" href="">Ziang Liu</a>,</span>
+            <span class="author-block">
+              <sup>3</sup><a target="_blank" href="">Kelvin Lin</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <sup>1</sup><a target="_blank" href="">Edward Gu</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <sup>1</sup><a target="_blank" href="">Ruolin Ye</a>,</span>
+            <span class="author-block">
+              <sup>4</sup><a target="_blank" href="">Tam Nguyen</a>,</span>
+            <br>
+            <span class="author-block">
+              <sup>2</sup><a target="_blank" href="">Cynthia Hsu</a>,</span>
+            <span class="author-block">
+              <sup>1</sup><a target="_blank" href="">Zhanxin Wu</a>,</span>
+            <span class="author-block">
+              <sup>1</sup><a target="_blank" href="">Xiaoman Yang</a>,</span>
+            <span class="author-block">
+              <sup>1</sup><a target="_blank" href="">Christy Sum Yu Cheung</a>,</span>
+            <br>
+            <span class="author-block">
+              <sup>3</sup><a target="_blank" href="">Harold Soh</a>,</span>
+            <span class="author-block">
+              <sup>2</sup><a target="_blank" href="">Katherine Dimitropoulou</a>,</span>
+            <span class="author-block">
+              <sup>1</sup><a target="_blank" href="">Tapomayukh Bhattacharjee</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Cornell University,</span>
+            <span class="author-block"><sup>2</sup>Columbia University,</span>
+            <span class="author-block"><sup>3</sup>National University of Singapore,</span>
+            <span class="author-block"><sup>4</sup>University of Massachusetts Lowell</span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+
+          <!-- <div class="column has-text-centered">
+            <div class="publication-links"> -->
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a target="_blank" href="https://arxiv.org/pdf/2109.12098.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+<!--               <span class="link-block">
+                <a target="_blank" href="https://drive.google.com/file/d/1xzG5e1XF958HPuD_FZTiKROd9AQyd1fS/view?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a target="_blank" href="https://youtu.be/UdzoagBgWTA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a target="_blank" href="https://github.com/cliport/cliport"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+            <!-- </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <img src="media/images/teaser.png" alt="Teaser" style="width: 100%;">
+      <h2 class="subtitle has-text-centered">
+      </br>
+        <span class="dnerf">OpenRoboCare</span> is an expert demonstration dataset for robot caregiving, featuring <b>21</b> occupational therapists demonstrating <b>15</b> common caregiving tasks, captured across <b>5</b> data modalities. It consists of <b>315</b> sessions, totaling <b>19.8</b> hours, with a collection of <b>31,185</b> samples.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+        <!--/ Re-rendering. -->
+        <br/>
+        <br/>
+        <h2 class="title is-3">Expert Demonstrations</h2>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+            <h3 class="title is-5">Caregiving Tasks</h3>
+            Choose a task to visualize:
+            <div class="select is-small">     
+              <select id="task-selection" onchange="updateTaskVideo()">
+              <option value="bathing">Bed Bathing</option>
+              <option value="dressing-bed">Dressing On Bed</option>
+              <option value="dressing-chair">Dressing On Wheelchair</option>
+              <option value="grooming">Grooming</option>
+              <option value="toileting">Toileting</option>
+              <option value="transferring" selected="selected">Transferring</option>
+              </select>
+            </div>
+            <br/>
+            <br/>
+
+            <video id="task-video"
+                   controls
+                   muted
+                   autoplay
+                   loop
+                   width="100%">
+              <source src="media/videos/OT19_Transferring.MP4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column has-text-centered">
+            <h3 class="title is-5">Occupational Therapists</h3>
+            
+            Choose an OT to visualize:
+            <div class="select is-small">   
+              <select id="ot-selection" onchange="updateOTVideo()">
+              <option value="OT1" selected="selected">OT 1</option>
+              <option value="OT2">OT 2</option>
+              <option value="OT3">OT 3</option>
+              <option value="OT4">OT 4</option>
+              <option value="OT5">OT 5</option>
+              <option value="OT6">OT 6</option>
+              <option value="OT7">OT 7</option>
+              <option value="OT8">OT 8</option>
+              <option value="OT9">OT 9</option>
+              <option value="OT10">OT 10</option>
+              <option value="OT11">OT 11</option>
+              <option value="OT12">OT 12</option>
+              <option value="OT13">OT 13</option>
+              <option value="OT14">OT 14</option>
+              <option value="OT15">OT 15</option>
+              <option value="OT16">OT 16</option>
+              <option value="OT17">OT 17</option>
+              <option value="OT18">OT 18</option>
+              <option value="OT19">OT 19</option>
+              <option value="OT20">OT 20</option>
+              <option value="OT21">OT 21</option>
+              </select>
+            </div>
+
+            </br>
+            </br>
+
+            <video id="ot-video"
+                   controls
+                   muted
+                   autoplay
+                   loop
+                   width="100%">
+              <source src="media/videos/OT1.MP4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+        </br>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present <span class="dnerf">OpenRoboCare</span>, a <b>multi-modal dataset for robot-assisted caregiving</b>, 
+            capturing expert occupational therapist demonstrations of Activities of Daily Living (ADLs). 
+          </p>
+          <p>
+            Caregiving tasks involve complex physical human-robot interactions, requiring precise perception under occlusions, 
+            safe physical contact, and long-horizon planning. While recent advances in robot learning from demonstrations have 
+            shown promise, there is a lack of a <b>large-scale, diverse, and expert-driven</b> dataset that captures real-world caregiving routines.
+          </p>
+          <p>
+            To address this gap, we collected data from 21 occupational therapists performing 15 ADL tasks on two manikins. 
+            The dataset spans five modalities — RGBD video, pose tracking, eye-gaze tracking, task and action annotations, 
+            and tactile sensing,  providing rich multi-modal insights into caregiver movement, attention, force application, 
+            and task execution strategies. We further analyze expert caregiving principles and strategies, offering insights to 
+            improve robot efficiency and task feasibility. Additionally, our evaluations demonstrate that 
+            <span class="dnerf">OpenRoboCare</span> presents challenges for state-of-the-art robot perception and human activity 
+            recognition methods, both critical for developing safe and adaptive assistive robots, highlighting the value of our contribution.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+
+    <!-- Paper video. -->
+    </br>
+    </br>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video id="paper_video" autoplay controls muted loop preload="metadata" width="100%">
+            <source src="media/videos/OpenRoboCare.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3"><span class="dnerf">OpenRoboCare</span></h2>
+        <br/>
+        <h3 class="title is-4">Comparing To Existing Datasets</h3>
+        <div class="content has-text-justified">
+          <p>
+            Previous works in the rehabilitation and public health literature have collected survey and
+            interview-based data on caregiving. These efforts focus on the health, social, and financial aspects of 
+            caregiving, rather than the physical process of caregiving that we consider here. 
+            Works close to ours do not collect data from expert caregivers [6] or lack multimodality [4, 5]. To
+            the best of our knowledge, OpenRoboCare is <b>the first dataset for multi-task, multi-modal, expert caregiving</b>.
+          </p>
+        </div>
+        <img src="media/images/comparison.png"
+         alt="Comparison table." />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <h3 class="title is-4">Data Collection Setup</h3>
+        <div class="content has-text-justified">
+          <p>
+            <b>Left</b>: setup of sensors and equipment. <b>Center</b>: assistive devices used by caregivers. <b>Right</b>: sequence of tasks performed by each caregiver.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="media/images/setup.png"
+           alt="Data collection setup." />
+        </div>
+        <br/>
+        <br/>
+
+        <h3 class="title is-4">Tactile Skin Design</h3>
+        <div class="content has-text-justified">
+          <p>
+            We develop a custom tactile skin to fit the manikins and record physical interactions between the
+            caregiver and the manikin. The sensor design is guided by three key considerations: (1) <b>customizability</b> to accommodate
+            various manikin body shapes and sizes, (2) <b>flexibility</b> to ensure secure attachment to curved surfaces, and (3) <b>durability</b>
+            to withstand pressure exerted by the manikin’s weight.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="media/images/skin.png"
+           alt="Tactile skin design." />
+        </div>
+        <br/>
+        <br/>
+
+
+        <h2 class="title is-3">Insights from Human Caregiving</h2>
+
+        </br>
+        <div class="content has-text-justified">
+          <p>
+            Throughout data collection, we observe various techniques that OTs use to perform tasks more efficiently while minimizing physical effort. 
+            We collaborate with an experienced OT to analyze the observed techniques and distill their underlying principles that can guide robot design for caregiving tasks.
+          </p>
+        </div>
+
+        <h3 class="title is-4">Principles</h3>
+        <div class="columns is-multiline is-centered">
+          <div class="column is-10">
+            <div class="box has-background-info-light has-text-justified">
+              <p><strong>Principle 1</strong>: OTs prioritize safety by carefully preparing the care recipient before 
+              initiating a task. They ensure that the care recipient’s posture, stability, joint angles, 
+              and supporting surfaces are appropriate for task execution.</p>
+            </div>
+          </div>
+          <div class="column is-10">
+            <div class="box has-background-success-light has-text-justified">
+              <p><strong>Principle 2</strong>: OTs anticipate and organize their body mechanics to support the entire 
+              task sequence, particularly for large-scale movements. They anticipate both the final
+              position and the trajectory of the care recipient’s body and limbs, which influences task execution decisions.</p>
+            </div>
+          </div>
+          <div class="column is-10">
+            <div class="box has-background-warning-light has-text-justified">
+              <p><strong>Principle 3</strong>: OTs prioritize accuracy and timely completion of tasks to ensure efficiency. 
+              Care recipients with severe mobility limitations often have medical conditions, making efficient ADL execution crucial.</p>
+            </div>
+          </div>
+        </div>
+
+        <br/>
+        <h3 class="title is-4">Techniques</h3>
+        <div class="columns is-multiline is-centered">
+          <div class="column is-10">
+            <div class="box has-background-danger-light has-text-justified">
+              <p><strong>Technique 1:</strong> Bridge Strategy — bending the care recipient’s knees and applying pressure behind the knees at the top of the calf to momentarily elevate the pelvis.</p>
+            </div>
+          </div>
+          <div class="column is-10">
+            <div class="box has-background-primary-light has-text-justified">
+              <p><strong>Technique 2:</strong> Segmental Roll — gradually turning the care recipient’s body. The OT bends the care recipient’s opposite-side knee and applies pressure on the bent 
+              knee to initiate a progressive rolling motion toward the OT.</p>
+            </div>
+          </div>
+          <div class="column is-10">
+            <div class="box has-background-link-light has-text-justified">
+              <p><strong>Technique 3:</strong> Wheelchair Recline During Transfer — reclining the wheelchair to a 45-degree backward tilt before transferring the care recipient helps improve positioning on
+              the chair.</p>
+            </div>
+          </div>
+          <div class="column is-10">
+            <div class="box has-background-purple-light has-text-justified" style="background-color: #f0e6ff !important;">
+              <p><strong>Technique 4:</strong> Stabilizing Key Points of Control — The pelvic bone, shoulders, and head serve as the primary points of control. OTs place their hands on key control points
+                — like the scapula and pelvis — to initiate, support, and control movement.</p>
+            </div>
+          </div>
+        </div>
+        
+        <br/>
+        <br/>
+
+        <h2 class="title is-3">Dataset Analysis</h2>
+
+        </br>
+        <h3 class="title is-4">General Data Statistics</h3>
+
+        <div class="content has-text-justified">
+          <p>
+            Distribution of data across tasks, location, manikin, and task duration.
+          </p>
+        </div>
+        <img src="media/images/vis_1.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+        <h3 class="title is-4">Occupational Therapist Strategies</h3>
+        <div class="content has-text-justified">
+          <p>
+            Distribution of occupational therapist strategies across tasks.
+          </p>
+        </div>
+        <img src="media/images/vis_2.png" style="clip-path: inset(0px 0px 0px 2px);" />
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+        <h3 class="title is-4">Physical Contact</h3>
+        <div class="content has-text-justified">
+          <p>
+            Physical contact distribution across tasks and body regions.
+          </p>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-half has-text-centered">
+            <img src="media/images/vis_3.png" style="height: 500px; width: auto; clip-path: inset(0px 0px 0px 2px);" />
+          </div>
+          <div class="column is-half has-text-centered">
+            <img src="media/images/vis_4.png" style="height: 500px; width: auto; clip-path: inset(0px 0px 0px 5px);" />
+          </div>
+        </div>
+
+        <h3 class="title is-4">Force</h3>
+        <div class="content has-text-justified">
+          <p>
+            Differences in force magnitude across tasks and during a bathing task.
+          </p>
+        </div>
+        <img src="media/images/vis_5.png" style="clip-path: inset(0px 0px 0px 2px);" />
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 
+<section class="section" id="BibTeX">
+  <div class="container is-max-widescreen content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{,
+  title     = {},
+  author    = {},
+  booktitle = {},
+  year      = {},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://cliport.github.io">CLIPort</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
