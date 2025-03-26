@@ -206,3 +206,13 @@ body {
 .has-background-purple-light {
   background-color: #ebd9ff !important; /* soft lilac with a more noticeable hue */
 }
+
+.has-background-transparent {
+  /* background-color: transparent !important;
+  box-shadow: none !important; */
+
+  background-color: #fafafa !important; /* Very light grey background */
+  box-shadow: none !important;
+  color: #888 !important; /* Greyed out text for placeholders */
+  text-align: center;
+}

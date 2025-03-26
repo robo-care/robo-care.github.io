@@ -35,6 +35,12 @@
       video.play();
     }
 
+    function toggleExample() {
+      const value = document.getElementById('exampleSelect').value;
+      document.getElementById('example1').style.display = value === 'example1' ? 'block' : 'none';
+      document.getElementById('example2').style.display = value === 'example2' ? 'block' : 'none';
+    }
+
   </script>
 
 
@@ -527,7 +533,98 @@
         <br/>
         <br/>
         <br/>
+        
+        <h2 class="title is-3">Qualitative Evaluations</h2>
 
+        <h3 class="title is-4">Video Captioning</h3>
+
+        <div class="select is-centered" style="margin-bottom: 1rem;">
+          <select id="exampleSelect" onchange="toggleExample()">
+            <option value="example1">Example 1</option>
+            <option value="example2">Example 2</option>
+          </select>
+        </div>
+
+        <div id="example1" class="example-section">
+          <h3 class="subtitle is-5 has-text-centered">Example 1</h3>
+          <div class="columns is-centered">
+            <!-- Left Column: Predicted -->
+            <div class="column is-two-fifths">
+              <h3 class="subtitle is-5 has-text-centered">Predicted (VidChapter-7M)</h3>
+              <div class="box has-background-danger-light has-text-centered">Intro</div>
+              <div class="box has-background-warning-light has-text-centered">Rolling over</div>
+              <div class="box has-background-primary-light has-text-centered">Wedged bedpan</div>
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-success-light has-text-centered">Removing bedpan</div>
+              <div class="box has-background-danger-light has-text-centered">Outro</div>
+              
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+            </div>
+            <!-- Right Column: Ground Truth -->
+            <div class="column is-two-fifths">
+              <h3 class="subtitle is-5 has-text-centered">Ground Truth OT Label</h3>
+              <div class="box has-background-transparent has-text-centered">ToiletingPan_Lift_Knees</div> <!-- &lt;Empty&gt; --> 
+              <div class="box has-background-warning-light has-text-centered">Roll_On_Side_L</div>
+              <div class="box has-background-primary-light has-text-centered">ToiletingPan_PositionPatient_OverPan</div>
+              <div class="box has-background-transparent has-text-centered">Roll_On_Back</div> <!-- Empty -->
+              <div class="box has-background-transparent has-text-centered">ToiletingPan_Lift_Knees</div>
+              <div class="box has-background-transparent has-text-centered">ToiletingPan_Lift_Knees</div>
+              <div class="box has-background-transparent has-text-centered">Roll_On_Side_L</div>
+              <div class="box has-background-success-light has-text-centered">ToiletingPan_Remove_Pan</div>
+              <div class="box has-background-transparent has-text-centered">Roll_On_Back</div>
+              <div class="box has-background-transparent has-text-centered">ToiletingPan_Lift_Knees</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="example2" class="example-section" style="display: none;">
+          <h3 class="subtitle is-5 has-text-centered">Example 2</h3>
+          <div class="columns is-centered">
+            <!-- Left Column: Predicted -->
+            <div class="column is-two-fifths">
+              <h3 class="subtitle is-5 has-text-centered">Predicted (VidChapter-7M)</h3>
+              <div class="box has-background-warning-light has-text-centered">Positioning the foyer</div>
+              <div class="box has-background-primary-light has-text-centered">Putting the strap on the hook</div>
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-success-light has-text-centered">Pumping up the bed</div>
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-info-light has-text-centered">Moving the lift while washing his line</div>
+              <div class="box has-background-info-light has-text-centered">Coming up to the chair</div>
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-link-light has-text-centered">Aligning the attendant</div>
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-danger-light has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+            </div>
+            <!-- Right Column: Ground Truth -->
+            <div class="column is-two-fifths">
+              <h3 class="subtitle is-5 has-text-centered">Ground Truth OT Label</h3>
+              <div class="box has-background-warning-light has-text-centered">AlignLift_ToBed</div>
+              <div class="box has-background-primary-light has-text-centered">Hook_BottomLeftStrap</div>
+              <div class="box has-background-primary-light has-text-centered">Hook_TopLeftStrap</div>
+              <div class="box has-background-transparent has-text-centered">OT_WalksTo_OppositeSide</div>
+              <div class="box has-background-primary-light has-text-centered">Hook_TopRightStrap</div>
+              <div class="box has-background-primary-light has-text-centered">Hook_BottomRightStrap</div>
+              <div class="box has-background-transparent has-text-centered">OT_WalksTo_OppositeSide</div>
+              <div class="box has-background-transparent has-text-centered">Final_Adjustments</div>
+              <div class="box has-background-success-light has-text-centered">RaisePatient_OnLift</div>
+              <div class="box has-background-transparent has-text-centered">Stabilize_LE</div>
+              <div class="box has-background-info-light has-text-centered">AlignLift_ToWheelchair</div>
+              <div class="box has-background-transparent has-text-centered">&lt;Empty&gt;</div> <!-- Empty -->
+              <div class="box has-background-transparent has-text-centered">LowerPatient_OnLift</div>
+              <div class="box has-background-link-light has-text-centered">Adjust_WheelchairPosition</div>
+              <div class="box has-background-transparent has-text-centered">UnloadPatient_OffLift</div>
+              <div class="box has-background-transparent has-text-centered">Final_Adjustments</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
