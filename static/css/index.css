@@ -178,3 +178,31 @@ body {
  .dropdown-item{
     white-space: pre-wrap;
 }  
+
+.has-background-info-light {
+  background-color: #d0e8f9 !important; /* softer sky blue, a bit richer */
+}
+
+.has-background-success-light {
+  background-color: #ccefd7 !important; /* light mint green with more depth */
+}
+
+.has-background-warning-light {
+  background-color: #ffe9b8 !important; /* creamy warm yellow, subtle but deeper */
+}
+
+.has-background-danger-light {
+  background-color: #fbd2d2 !important; /* soft coral pink, lighter than red but more contrast */
+}
+
+.has-background-primary-light {
+  background-color: #d5d9f9 !important; /* periwinkle blue with a purple hue */
+}
+
+.has-background-link-light {
+  background-color: #c6f0f2 !important; /* soft turquoise/aqua to differentiate from primary */
+}
+
+.has-background-purple-light {
+  background-color: #ebd9ff !important; /* soft lilac with a more noticeable hue */
+}
