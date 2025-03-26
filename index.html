@@ -41,6 +41,14 @@
       document.getElementById('example2').style.display = value === 'example2' ? 'block' : 'none';
     }
 
+    function toggleTrajectory() {
+    const selected = document.getElementById('trajectorySelect').value;
+    const all = ['2d_traj_a', '2d_traj_b', '2d_traj_c', '2d_traj_d'];
+    all.forEach(id => {
+      document.getElementById(id).style.display = (id === selected) ? 'block' : 'none';
+    });
+  }
+
   </script>
 
 
@@ -476,6 +484,31 @@
         <br/>
 
         <h2 class="title is-3">Dataset Analysis</h2>
+
+        <h3 class="title is-4">Caregiver Trajectory Across Tasks</h3>
+
+        <div class="select is-centered" style="margin-bottom: 1rem;">
+          <select id="trajectorySelect" onchange="toggleTrajectory()">
+            <option value="2d_traj_a">Caregiver A</option>
+            <option value="2d_traj_b">Caregiver B</option>
+            <option value="2d_traj_c">Caregiver C</option>
+            <option value="2d_traj_d">Caregiver D</option>
+          </select>
+        </div>
+        
+        <div id="2d_traj_a" class="trajectory-image">
+          <img src="media/images/2d_trajectory_grid_12.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_traj_b" class="trajectory-image" style="display: none;">
+          <img src="media/images/2d_trajectory_grid_13.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_traj_c" class="trajectory-image" style="display: none;">
+          <img src="media/images/2d_trajectory_grid_18.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_traj_d" class="trajectory-image" style="display: none;">
+          <img src="media/images/2d_trajectory_grid_19.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+
 
         </br>
         <h3 class="title is-4">General Data Statistics</h3>
