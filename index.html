@@ -42,12 +42,20 @@
     }
 
     function toggleTrajectory() {
-    const selected = document.getElementById('trajectorySelect').value;
-    const all = ['2d_traj_a', '2d_traj_b', '2d_traj_c', '2d_traj_d'];
-    all.forEach(id => {
-      document.getElementById(id).style.display = (id === selected) ? 'block' : 'none';
-    });
-  }
+      const selected = document.getElementById('trajectorySelect').value;
+      const all = ['2d_traj_a', '2d_traj_b', '2d_traj_c', '2d_traj_d'];
+      all.forEach(id => {
+        document.getElementById(id).style.display = (id === selected) ? 'block' : 'none';
+      });
+    }
+
+    function toggleWorkspaceView() {
+      const selected = document.querySelector('input[name="workspaceView"]:checked').value;
+      console.log(selected);
+      document.getElementById('scatterImage').style.display = selected === 'scatter' ? 'block' : 'none';
+      document.getElementById('hullImage').style.display = selected === 'hull' ? 'block' : 'none';
+    }
+ 
 
   </script>
 
@@ -489,7 +497,7 @@
 
         <div class="content has-text-justified">
           <p>
-            Caregiver trajectories for transfer tasks involve more complex movements compared to other tasks. Caregivers take different approachs for tasks like bathing and dressing, with some 
+            We visualize the top-down view of caregiver head trajectory. Caregiver trajectories for transfer tasks involve more complex movements compared to other tasks. Caregivers take different approachs for tasks like bathing and dressing, with some 
             approaching the manikin from one side and others from both sides. This diversity in strategy highlights the importance of a comprehensive expert demonstration dataset.
           </p>
         </div>
@@ -515,6 +523,40 @@
         <div id="2d_traj_d" class="trajectory-image">
           <img src="media/images/2d_trajectory_grid_19.png" style="clip-path: inset(0px 0px 0px 2px);" />
         </div>
+
+        <h3 class="title is-4">Caregiver Hand Workspace</h3>
+
+        <div class="content has-text-justified">
+          <p>
+            We visualize the workspace of the caregivers' hands during the task. The scatter plot shows the trajectory and the density of the hand positions. The convex hull plot shows the boundary of the hand workspace.
+            Grooming requires a minimal workspace, while tasks like transferring require a larger workspace. Dressing on-bed requires more hand movement because of the need to lift the manikin from the bed, compared to on-chair
+            dressing.
+          </p>
+        </div>
+
+
+        <div class="field is-grouped is-grouped-centered" style="margin-bottom: 1rem;">
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="workspaceView" value="scatter" checked onchange="toggleWorkspaceView()">
+              Scatter
+            </label>
+          </div>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="workspaceView" value="hull" onchange="toggleWorkspaceView()">
+              Hull
+            </label>
+          </div>
+        </div>
+
+        <div id="scatterImage" style="display: block;">
+          <img src="media/images/3d_hand_workspace_scatter.png">
+        </div>
+        <div id="hullImage" style="display: none;">
+          <img src="media/images/3d_hand_workspace_hull.png">
+        </div>
+        
 
 
         </br>
