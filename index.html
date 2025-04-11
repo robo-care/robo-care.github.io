@@ -49,6 +49,17 @@
       });
     }
 
+    function toggleHandWorkspace() {
+      const selected = document.getElementById('handWorkspaceSelect').value;
+      const all = ['2d_hand_workspace_1', '2d_hand_workspace_2', '2d_hand_workspace_3', '2d_hand_workspace_4', 
+                   '2d_hand_workspace_5', '2d_hand_workspace_6', '2d_hand_workspace_7', '2d_hand_workspace_8',
+                   '2d_hand_workspace_9', '2d_hand_workspace_10', '2d_hand_workspace_11', '2d_hand_workspace_12',
+                   '2d_hand_workspace_13', '2d_hand_workspace_14', '2d_hand_workspace_15'];
+      all.forEach(id => {
+        document.getElementById(id).style.display = (id === selected) ? 'block' : 'none';
+      });
+    }
+
     function toggleWorkspaceView() {
       const selected = document.querySelector('input[name="workspaceView"]:checked').value;
       console.log(selected);
@@ -530,14 +541,79 @@
 
         <div class="content has-text-justified">
           <p>
-            We visualize the workspace of the caregivers' hands during the task. The scatter plot shows the trajectory and the density of the hand positions. The convex hull plot shows the boundary of the hand workspace.
-            Grooming requires a minimal workspace, while tasks like transferring require a larger workspace. Dressing on-bed requires more hand movement because of the need to lift the manikin from the bed, compared to on-chair
-            dressing.
+            We visualize the global workspace of the caregivers' hands relative to the hospital bed and assistive wheelchair to provide insights 
+            into the robot workspace needed for caregiving tasks.
           </p>
         </div>
 
+        <div class="select is-centered" style="margin-bottom: 1rem;">
+          <select id="handWorkspaceSelect" onchange="toggleHandWorkspace()">
+            <option value="2d_hand_workspace_1" selected>Bath</option>
+            <option value="2d_hand_workspace_2">Toilet</option>
+            <option value="2d_hand_workspace_3">Dress T-shirt (Bed)</option>
+            <option value="2d_hand_workspace_4">Undress T-shirt (Bed)</option>
+            <option value="2d_hand_workspace_5">Dress Vest (Bed)</option>
+            <option value="2d_hand_workspace_6">Undress Vest (Bed)</option>
+            <option value="2d_hand_workspace_7">Dress Shorts (Bed)</option>
+            <option value="2d_hand_workspace_8">Undress Shorts (Bed)</option>
+            <option value="2d_hand_workspace_9">Transfer (Bed-Wheelchair)</option>
+            <option value="2d_hand_workspace_10">Groom</option>
+            <option value="2d_hand_workspace_11">Dress T-shirt (Wheelchair)</option>
+            <option value="2d_hand_workspace_12">Undress T-shirt (Wheelchair)</option>
+            <option value="2d_hand_workspace_13">Dress Vest (Wheelchair)</option>
+            <option value="2d_hand_workspace_14">Undress Vest (Wheelchair)</option>
+            <option value="2d_hand_workspace_15">Transfer (Wheelchair-Bed)</option> 
+          </select>
+        </div>
+        
+        <div id="2d_hand_workspace_1" class="hand-workspace-image">
+          <img src="media/images/2d_hand_workspace_1.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_2" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_2.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_3" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_3.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_4" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_4.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_5" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_5.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_6" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_6.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_7" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_7.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_8" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_8.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_9" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_9.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_10" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_10.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_11" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_11.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_12" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_12.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_13" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_13.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_14" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_14.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
+        <div id="2d_hand_workspace_15" class="hand-workspace-image" style="display: none;">
+          <img src="media/images/2d_hand_workspace_15.png" style="clip-path: inset(0px 0px 0px 2px);" />
+        </div>
 
-        <div class="field is-grouped is-grouped-centered" style="margin-bottom: 1rem;">
+
+        <!-- <div class="field is-grouped is-grouped-centered" style="margin-bottom: 1rem;">
           <div class="control">
             <label class="radio">
               <input type="radio" name="workspaceView" value="scatter" checked onchange="toggleWorkspaceView()">
@@ -557,7 +633,7 @@
         </div>
         <div id="hullImage" style="display: none;">
           <img src="media/images/3d_hand_workspace_hull.png">
-        </div>
+        </div> -->
         
 
 
