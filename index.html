@@ -621,7 +621,20 @@
         <h2 class="title is-3">Qualitative Evaluations</h2>
 
         <h3 class="title is-4">Video Captioning</h3>
+
         
+        <div class="content has-text-justified">
+          <p>
+            We run VidChapter-7M on a subset of the RGB videos to demonstrate 
+            that OpenRoboCare poses significant challenges for off-the-shelf state-of-the-art video captioning models. 
+            Compared to the ground truth action labels annotated by occupational therapists, the captions predicted by 
+            VidChapter-7M are noticeably sparser and lack fine-grained detail. Furthermore, the model struggles with 
+            domain-specific terminology and context, evident in cases where it mislabels key caregiving actions. 
+            For example, when the caregiver aligns the Hoyer lift to the bed, the model inaccurately captions the 
+            activity as "positioning the foyer."
+          </p>
+        </div>
+
         <div class="publication-video">
           <video id="paper_video" autoplay controls muted loop preload="metadata" width="100%">
             <source src="media/videos/transfer_captioning.mp4" type="video/mp4">
